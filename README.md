@@ -1,7 +1,7 @@
 "# christmas_bot_v2" 
 
 
-To install dependancies, run:
-    npn install
+To install dependencies, run:
+    npm install
 
     
