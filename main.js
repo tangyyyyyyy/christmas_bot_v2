@@ -17,7 +17,7 @@ const { connect, connection } = require('mongoose');
 async function main() {
 
     console.log("The elves are getting to work...")
-    await connect(databaseToken).catch(console.error);
+    await connect(databaseToken, {dbName: 'christmas_bot_v2'}).catch(console.error);
     console.log("Christmas Bot Status: ONLINE");
 
     await createItem('Gumdrop Button', RARITY.COMMON);
