@@ -12,4 +12,4 @@ const ornamentSchema = new Schema({
     },
 })
 
-module.exports = Item.discriminator('Ornament', ornamentSchema)
+module.exports = Item.discriminator('Ornament', ornamentSchema);
