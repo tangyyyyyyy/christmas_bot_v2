@@ -1,1 +1,1 @@
-// createCreatureObject()
+// createCreature()
