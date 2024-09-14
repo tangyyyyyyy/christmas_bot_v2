@@ -1,1 +1,1 @@
-// createSettingsObject()
+// createSettings()

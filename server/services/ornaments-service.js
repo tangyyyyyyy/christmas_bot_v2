@@ -1,1 +1,1 @@
-// createOrnamentItem()
+// createOrnament()
