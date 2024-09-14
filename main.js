@@ -11,17 +11,19 @@ const RARITY = {
 
 const Item = require('./server/schemas/item');
 const Ornament = require('./server/schemas/ornament');
+const Settings = require('./server/schemas/settings');
 const { token, databaseToken } = process.env; 
 const { connect, connection } = require('mongoose');
 
 async function main() {
 
     console.log("The elves are getting to work...")
-    await connect(databaseToken).catch(console.error);
+    await connect(databaseToken, {dbName: 'christmas_bot_v2'}).catch(console.error);
     console.log("Christmas Bot Status: ONLINE");
 
-    await createItem('Gumdrop Button', RARITY.COMMON);
-    await createOrnament('Gumdrop Ornament', RARITY.LEGENDARY, undefined, 123);
+    // await createItem('Gumdrop Button', RARITY.COMMON);
+    // await createOrnament('Gumdrop Ornament', RARITY.LEGENDARY, undefined, 123);
+    // await initializeSettings(123);
 
     await connection.close();
     console.log("Christmas Bot Status: OFFLINE");
@@ -52,6 +54,18 @@ async function createOrnament(name, rarity, image, serverId, isFound ) {
         console.log(err);
     }
     
+}
+
+async function initializeSettings(serverId){
+    const settings = new Settings({serverId})
+
+    try {
+        await settings.save()
+        console.log(`Initialized settings for ${serverId}`)
+    } catch(err) {
+        console.log(`Failed to initialize settings`);
+        console.log(err);
+    }
 }
 
 main();
