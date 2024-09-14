@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const Settings = require('./item');
 
 const settingsSchema = new Schema({
     serverId: {
