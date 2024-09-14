@@ -9,8 +9,10 @@ const RARITY = {
     LEGENDARY: 0.5,
 }
 
-const Item = require('./server/schemas/item');
-const Ornament = require('./server/schemas/ornament');
+const { Item } = require('./server/schemas/item');
+const { Ornament } = require('./server/schemas/ornament');
+const { Player }= require('./server/schemas/player');
+const { Creature }= require('./server/schemas/creature');
 const { token, databaseToken } = process.env; 
 const { connect, connection } = require('mongoose');
 
@@ -20,8 +22,9 @@ async function main() {
     await connect(databaseToken, {dbName: 'christmas_bot_v2'}).catch(console.error);
     console.log("Christmas Bot Status: ONLINE");
 
-    await createItem('Gumdrop Button', RARITY.COMMON);
-    await createOrnament('Gumdrop Ornament', RARITY.LEGENDARY, undefined, 123);
+    // const myItem2 = await createItem('Gumdrop Button', RARITY.COMMON);
+    // const myOrnament2 = await createOrnament('Gumdrop Ornament', RARITY.LEGENDARY, "", 123, false);
+    // await createCreature("Grim Grimmler", "he", [myItem2, myOrnament2], "naughty", "" )
 
     await connection.close();
     console.log("Christmas Bot Status: OFFLINE");
@@ -37,8 +40,8 @@ async function createItem(name, rarity, image) {
         console.log(`Failed to add item to the database`);
         console.log(err);
     }
-    
 
+    return item;
 }
 
 async function createOrnament(name, rarity, image, serverId, isFound ) {
@@ -51,7 +54,33 @@ async function createOrnament(name, rarity, image, serverId, isFound ) {
         console.log(`Failed to add ornament to the database`);
         console.log(err);
     }
-    
+    return ornament;
+}
+
+async function createPlayer(playerId, serverId, score, inventory, ornamentsFound, coalCount) {
+    const player = new Player({playerId, serverId, score, inventory, ornamentsFound, coalCount})
+
+    try {
+        await player.save()
+        console.log(`Player added, playerID: ${playerId}`)
+    } catch(err) {
+        console.log(`Failed to add player to the database`);
+        console.log(err);
+    }
+    return player
+}
+
+async function createCreature(name, pronoun, items, nature, image) {
+    const creature = new Creature({name, pronoun, items, nature, image})
+
+    try {
+        await creature.save()
+        console.log(`Creature added, name: ${name}`)
+    } catch(err) {
+        console.log(`Failed to add creature to the database:`);
+        console.log(err);
+    }
+    return creature
 }
 
 main();

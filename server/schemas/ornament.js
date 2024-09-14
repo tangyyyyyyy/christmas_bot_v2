@@ -1,5 +1,5 @@
-const { Schema } = require('mongoose');
-const Item = require('./item');
+const { Schema, model } = require('mongoose');
+const { Item } = require('./item');
 
 const ornamentSchema = new Schema({
     serverId: {
@@ -12,4 +12,5 @@ const ornamentSchema = new Schema({
     },
 })
 
-module.exports = Item.discriminator('Ornament', ornamentSchema)
+const Ornament = Item.discriminator('Ornament', ornamentSchema);
+module.exports = { Ornament, ornamentSchema};

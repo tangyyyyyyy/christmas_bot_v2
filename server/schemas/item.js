@@ -3,7 +3,8 @@ const { Schema, model } = require('mongoose');
 const itemSchema = new Schema({
     name: {
         type: String, 
-        required: true
+        required: true,
+        unique: true
     },
     rarity: {
         type: Number, 
@@ -16,4 +17,5 @@ const itemSchema = new Schema({
     }
 }, { discriminatorKey: 'kind'});
 
-module.exports = model('Item', itemSchema)
+const Item = model('Item', itemSchema);
+module.exports = { Item, itemSchema };
