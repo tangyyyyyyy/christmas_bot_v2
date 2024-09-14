@@ -1,7 +1,0 @@
-// addObjectToDB()
-
-// deleteObjectFromDB()
-
-// updateObjectInDB()
-
-// getObjectFromDB()
