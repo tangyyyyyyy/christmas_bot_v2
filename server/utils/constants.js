@@ -1,0 +1,1 @@
+// constants for things like rarity
