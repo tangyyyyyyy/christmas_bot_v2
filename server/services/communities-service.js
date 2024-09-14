@@ -1,0 +1,5 @@
+// createCommunityObject()
+
+// getCommunityTree()
+
+// getCreatureDex()
