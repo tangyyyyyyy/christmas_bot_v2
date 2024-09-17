@@ -15,6 +15,9 @@ const { Player }= require('./server/schemas/player');
 const { Creature }= require('./server/schemas/creature');
 const { token, databaseToken } = process.env; 
 const { connect, connection } = require('mongoose');
+const { Community } = require("./server/schemas/community");
+
+const { createItem } = require("./createHelper")
 
 async function main() {
 
@@ -22,27 +25,45 @@ async function main() {
     await connect(databaseToken, {dbName: 'christmas_bot_v2'}).catch(console.error);
     console.log("Christmas Bot Status: ONLINE");
 
-    // const myItem2 = await createItem('Gumdrop Button', RARITY.COMMON);
-    // const myOrnament2 = await createOrnament('Gumdrop Ornament', RARITY.LEGENDARY, "", 123, false);
-    // await createCreature("Grim Grimmler", "he", [myItem2, myOrnament2], "naughty", "" )
+
+    //TESTING: set to true if you want to purge databases
+    let input = true
+    if (input) {
+        console.log("Deleting existing databases...");
+        await connection.db.dropDatabase();
+    }
+
+    const myItem = await createItem('Gumdrop Button', RARITY.COMMON, `google.com`);
+
+    const myOrnament = await createOrnament('Gumdrop Ornament', RARITY.LEGENDARY, "", 123);
+
+    const myCreature = await createCreature("Grim Grimmler", "he", [myItem, myOrnament], "naughty", "" );
+    const myPlayer = await createPlayer(123, 456, 1, [myItem], [myOrnament], 0);
+    
+    await console.log("Attemping to create community...")
+    const myCommunity = await createCommunity(456, [myOrnament], [myCreature]);
+
+
+    // console.log("FOUND ORNAMENTS: ", myCommunity);
+   // console.log("FOUND BY PLAYER: ", myCommunity.foundOrnaments.get(myOrnament));
 
     await connection.close();
     console.log("Christmas Bot Status: OFFLINE");
 }
 
-async function createItem(name, rarity, image) {
-    const item = new Item({name, rarity, image})
+// async function createItem(name, rarity, image) {
+//     const item = new Item({name, rarity, image})
 
-    try {
-        await item.save()
-        console.log(`Added item: ${name}`)
-    } catch(err) {
-        console.log(`Failed to add item to the database`);
-        console.log(err);
-    }
+//     try {
+//         await item.save()
+//         console.log(`Added item: ${name}`)
+//     } catch(err) {
+//         console.log(`Failed to add item to the database`);
+//         console.log(err);
+//     }
 
-    return item;
-}
+//     return item;
+// }
 
 async function createOrnament(name, rarity, image, serverId, isFound ) {
     const ornament = new Ornament({name, rarity, image, serverId, isFound})
@@ -81,6 +102,22 @@ async function createCreature(name, pronoun, items, nature, image) {
         console.log(err);
     }
     return creature
+}
+
+async function createCommunity(serverId, foundOrnaments, foundCreatures) {
+    let community = new Community({serverId, foundOrnaments, foundCreatures})
+
+    try {
+        await community.save()
+        
+        console.log(`Community added, ID: ${serverId}`)
+        console.log(`${serverId} has found ${community.foundOrnaments}! `)
+        console.log(`${serverId} has found ${community.foundCreatures}! `)
+    } catch(err) {
+        console.log(`Failed to add creature to the database:`);
+        console.log(err);
+    }
+    return community
 }
 
 main();

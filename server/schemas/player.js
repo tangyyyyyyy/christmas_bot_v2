@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
-const { Item, itemSchema } = require('./item');
-const { Ornament, ornamentSchema } = require('./ornament');
+const { itemSchema } = require('./item');
 
 const playerSchema = new Schema({
     playerId: {
@@ -21,10 +20,6 @@ const playerSchema = new Schema({
         type: itemSchema,
         required: true,
     }],
-    ornamentsFound: [{
-        type: ornamentSchema,
-        required: true,
-    }],
     coalCount: {
         type: Number,
         required: true,
@@ -33,4 +28,4 @@ const playerSchema = new Schema({
 })
 
 const Player = model('Player', playerSchema);
-module.exports = { Player, playerSchema };
+module.exports = { Player, playerSchema } ;

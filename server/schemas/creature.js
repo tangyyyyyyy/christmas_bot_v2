@@ -1,16 +1,17 @@
 const { Schema, model } = require('mongoose');
-const { Item, itemSchema } = require('./item');
+const { itemSchema } = require('./item');
+const { playerSchema } = require('./player');
 
 const creatureSchema = new Schema({
     name: {
         type: String, 
         required: true,
-        unique: true
+        unique: true,
     },
 
     pronoun : {
         type: String,
-        required: true
+        required: true,
     },
 
     items: [{
@@ -26,7 +27,16 @@ const creatureSchema = new Schema({
 
     image: {
         type: String,
-        default: "",
+        default: '',
+    },
+
+    isFound: {
+        type: Boolean,
+        default: false,
+    },
+
+    foundBy: {
+        type: playerSchema,
     }
 })
 
