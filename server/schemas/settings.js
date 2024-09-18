@@ -12,4 +12,5 @@ const settingsSchema = new Schema({
     }
 })
 
-module.exports = model('Settings', settingsSchema);
+const Settings = model('Settings', settingsSchema);
+module.exports = { Settings, settingsSchema };
