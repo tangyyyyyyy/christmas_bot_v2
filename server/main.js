@@ -1,26 +1,22 @@
 console.log("INITIALIZING CHRISTMAS BOT");
 require("dotenv").config();
 
-const RARITY = {
-    COMMON: 50,
-    UNCOMMON: 30,
-    RARE: 15,
-    EPIC: 4.5,
-    LEGENDARY: 0.5,
-}
+//schemas imports
+const { Item } = require('./schemas/item');
+const { Ornament } = require('./schemas/ornament');
+const { Player } = require('./schemas/player');
+const { Creature } = require('./schemas/creature');
+const { Community } = require("./schemas/community");
 
-const { Item } = require('./server/schemas/item');
-const { Ornament } = require('./server/schemas/ornament');
-const { Player }= require('./server/schemas/player');
-const { Creature }= require('./server/schemas/creature');
+//utils imports
+const { RARITY } = require('./utils/constants');
 
-const { createItem } = require('./server/services/items-service')
+//services imports
+const { createItem } = require('./services/items-service')
 
+//server dependancies
 const { token, databaseToken } = process.env; 
 const { connect, connection } = require('mongoose');
-const { Community } = require("./server/schemas/community");
-
-const { createItem } = require("./createHelper")
 
 async function main() {
 
@@ -89,22 +85,6 @@ async function createCreature(name, pronoun, items, nature, image) {
         console.log(err);
     }
     return creature
-}
-
-async function createCommunity(serverId, foundOrnaments, foundCreatures) {
-    let community = new Community({serverId, foundOrnaments, foundCreatures})
-
-    try {
-        await community.save()
-        
-        console.log(`Community added, ID: ${serverId}`)
-        console.log(`${serverId} has found ${community.foundOrnaments}! `)
-        console.log(`${serverId} has found ${community.foundCreatures}! `)
-    } catch(err) {
-        console.log(`Failed to add creature to the database:`);
-        console.log(err);
-    }
-    return community
 }
 
 async function initializeSettings(serverId){
