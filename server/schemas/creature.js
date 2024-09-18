@@ -15,8 +15,8 @@ const creatureSchema = new Schema({
     },
 
     items: [{
-            type: itemSchema,
-            required: true,
+        type: itemSchema,
+        required: true,
     }],
 
     nature: {

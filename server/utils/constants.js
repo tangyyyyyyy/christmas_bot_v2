@@ -1,5 +1,3 @@
-// constants for things like rarity
-
 const RARITY = {
     COMMON: 50,
     UNCOMMON: 30,
@@ -8,4 +6,4 @@ const RARITY = {
     LEGENDARY: 0.5,
 }
 
-export { RARITY }
+module.exports = { RARITY }

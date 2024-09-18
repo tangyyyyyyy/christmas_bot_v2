@@ -1,6 +1,4 @@
-// createItem()
-
-const { createDatabaseEntry } = require('../utils/helper-functions')
+const { createDatabaseEntry, validateRequiredFields } = require('../utils/helper-functions')
 const { Item } = require('../schemas/item')
 
 /**
@@ -10,7 +8,8 @@ const { Item } = require('../schemas/item')
  * @param {string} image 
  * @returns None
  */
-async function createItem(name, rarity, image) {
+async function createItem({name, rarity, image}) {
+    validateRequiredFields({name, rarity}, 'item');
 
     const item = new Item({name, rarity, image})
     
@@ -19,4 +18,4 @@ async function createItem(name, rarity, image) {
     }
 }
 
-export { createItem }
+module.exports = { createItem }
