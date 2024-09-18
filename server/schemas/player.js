@@ -10,7 +10,7 @@ const playerSchema = new Schema({
     serverId: {
         type: Number,
         required: true,
-        immutable: true,
+        immutable: true
     },
     score: {
         type: Number,
