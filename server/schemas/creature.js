@@ -3,42 +3,44 @@ const { itemSchema } = require('./item');
 const { playerSchema } = require('./player');
 
 const creatureSchema = new Schema({
-    name: {
-        type: String, 
-        required: true,
-        unique: true,
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+
+  pronoun: {
+    type: String,
+    required: true,
+  },
+
+  items: [
+    {
+      type: itemSchema,
+      required: true,
     },
+  ],
 
-    pronoun : {
-        type: String,
-        required: true,
-    },
+  nature: {
+    type: String,
+    required: true,
+    validator: (value) => value in ['naughty', 'nice'],
+  },
 
-    items: [{
-        type: itemSchema,
-        required: true,
-    }],
+  image: {
+    type: String,
+    default: '',
+  },
 
-    nature: {
-        type: String, 
-        required: true,
-        validator: (value) => value in ["naughty", "nice"]
-    },
+  isFound: {
+    type: Boolean,
+    default: false,
+  },
 
-    image: {
-        type: String,
-        default: '',
-    },
-
-    isFound: {
-        type: Boolean,
-        default: false,
-    },
-
-    foundBy: {
-        type: playerSchema,
-    }
-})
+  foundBy: {
+    type: playerSchema,
+  },
+});
 
 const Creature = model('Creature', creatureSchema);
 module.exports = { Creature, creatureSchema };

@@ -1,5 +1,8 @@
-const { createDatabaseEntry, validateRequiredFields } = require('../utils/helper-functions')
-const { Creature } = require('../schemas/creature')
+const {
+  createDatabaseEntry,
+  validateRequiredFields,
+} = require('../utils/helper-functions');
+const { Creature } = require('../schemas/creature');
 
 /**
  * Creates a creature model and adds it the database
@@ -13,14 +16,30 @@ const { Creature } = require('../schemas/creature')
  * @param {Object.key -- foundBy} playerSchema
  * @returns none
  */
-async function createCreature({name, pronoun, items, nature, image, isFound, foundBy}) {
-    validateRequiredFields({name, pronoun, items, nature}, 'creature');
+async function createCreature({
+  name,
+  pronoun,
+  items,
+  nature,
+  image,
+  isFound,
+  foundBy,
+}) {
+  validateRequiredFields({ name, pronoun, items, nature }, 'creature');
 
-    const creature = new Creature({name, pronoun, items, nature, image, isFound, foundBy})
+  const creature = new Creature({
+    name,
+    pronoun,
+    items,
+    nature,
+    image,
+    isFound,
+    foundBy,
+  });
 
-    if(creature) {
-        await createDatabaseEntry(creature);
-    }
+  if (creature) {
+    await createDatabaseEntry(creature);
+  }
 }
 
-module.exports = { createCreature }
+module.exports = { createCreature };

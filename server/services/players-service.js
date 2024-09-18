@@ -1,5 +1,8 @@
-const { createDatabaseEntry, validateRequiredFields } = require('../utils/helper-functions')
-const { Player } = require('../schemas/player')
+const {
+  createDatabaseEntry,
+  validateRequiredFields,
+} = require('../utils/helper-functions');
+const { Player } = require('../schemas/player');
 
 /**
  * creates a player in the database
@@ -11,21 +14,36 @@ const { Player } = require('../schemas/player')
  * @param {Object.key -- Number -- required} coalCount
  * @returns None
  */
-async function createPlayer({playerId, serverId, score, inventory, coalCount}) {
-    validateRequiredFields({playerId, serverId, score, inventory, coalCount}, 'player');
+async function createPlayer({
+  playerId,
+  serverId,
+  score,
+  inventory,
+  coalCount,
+}) {
+  validateRequiredFields(
+    { playerId, serverId, score, inventory, coalCount },
+    'player',
+  );
 
-    const player = new Player({playerId, serverId, score, inventory, coalCount})
+  const player = new Player({
+    playerId,
+    serverId,
+    score,
+    inventory,
+    coalCount,
+  });
 
-    if (player) {
-        await createDatabaseEntry(player);
-    }
-    return player
+  if (player) {
+    await createDatabaseEntry(player);
+  }
+  return player;
 }
 
 // updatePlayerAttributes() called when a player responds to a spawned creature (TODO: Rename this to something better)
 
-// getPlayerInventory() 
+// getPlayerInventory()
 
-// getFoundOrnaments() 
+// getFoundOrnaments()
 
-module.exports = { createPlayer }
+module.exports = { createPlayer };

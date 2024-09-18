@@ -1,7 +1,4 @@
-"# christmas_bot_v2" 
-
+"# christmas_bot_v2"
 
 To install dependencies, run:
-    npm install
-
-    
+npm install
