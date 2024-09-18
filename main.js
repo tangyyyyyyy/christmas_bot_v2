@@ -120,4 +120,16 @@ async function createCommunity(serverId, foundOrnaments, foundCreatures) {
     return community
 }
 
+async function initializeSettings(serverId){
+    const settings = new Settings({serverId})
+
+    try {
+        await settings.save()
+        console.log(`Initialized settings for ${serverId}`)
+    } catch(err) {
+        console.log(`Failed to initialize settings`);
+        console.log(err);
+    }
+}
+
 main();
