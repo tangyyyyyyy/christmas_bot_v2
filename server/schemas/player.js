@@ -1,12 +1,31 @@
 const { Schema, model } = require('mongoose');
+const { itemSchema } = require('./item');
+
 const playerSchema = new Schema({
-    _id: Schema.Types.ObjectId,
-    coalCount: { type: Number, required: true }, 
-    // inventory: { type: [itemSchema], required: true }, 
-    // ornamentsFound: { type: [ornamentSchema], required: true },
-    playerID: { type: Number, required: true },
-    serverID: { type: Number, required: true },
-    score: { type: Number, required: true },
+    playerId: {
+        type: Number, 
+        required: true,
+        immutable: true
+    },
+    serverId: {
+        type: Number,
+        required: true,
+        immutable: true,
+    },
+    score: {
+        type: Number,
+        required: true,
+    },
+    inventory: [{
+        type: itemSchema,
+        required: true,
+    }],
+    coalCount: {
+        type: Number,
+        required: true,
+        validator: (value) => value >= 0
+    }
 })
 
-module.exports = model("Player", playerSchema)
+const Player = model('Player', playerSchema);
+module.exports = { Player, playerSchema };
