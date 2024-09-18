@@ -47,8 +47,6 @@ async function main() {
     const myCommunity = await createCommunity(456, [myOrnament], [myCreature]);
 
 
-    // console.log("FOUND ORNAMENTS: ", myCommunity);
-   // console.log("FOUND BY PLAYER: ", myCommunity.foundOrnaments.get(myOrnament));
 
     await connection.close();
     console.log("Christmas Bot Status: OFFLINE");
@@ -119,6 +117,22 @@ async function initializeSettings(serverId){
         console.log(`Failed to initialize settings`);
         console.log(err);
     }
+}
+
+async function createCommunity(serverId, foundOrnaments, foundCreatures) {
+    let community = new Community({serverId, foundOrnaments, foundCreatures})
+
+    try {
+        await community.save()
+        
+        console.log(`Community added, ID: ${serverId}`)
+        console.log(`${serverId} has found ${community.foundOrnaments}! `)
+        console.log(`${serverId} has found ${community.foundCreatures}! `)
+    } catch(err) {
+        console.log(`Failed to add creature to the database:`);
+        console.log(err);
+    }
+    return community
 }
 
 main();
