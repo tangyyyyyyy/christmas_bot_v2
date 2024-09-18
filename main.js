@@ -13,6 +13,9 @@ const { Item } = require('./server/schemas/item');
 const { Ornament } = require('./server/schemas/ornament');
 const { Player }= require('./server/schemas/player');
 const { Creature }= require('./server/schemas/creature');
+
+const { createItem } = require('./server/services/items-service')
+
 const { token, databaseToken } = process.env; 
 const { connect, connection } = require('mongoose');
 const { Community } = require("./server/schemas/community");
@@ -50,20 +53,6 @@ async function main() {
     await connection.close();
     console.log("Christmas Bot Status: OFFLINE");
 }
-
-// async function createItem(name, rarity, image) {
-//     const item = new Item({name, rarity, image})
-
-//     try {
-//         await item.save()
-//         console.log(`Added item: ${name}`)
-//     } catch(err) {
-//         console.log(`Failed to add item to the database`);
-//         console.log(err);
-//     }
-
-//     return item;
-// }
 
 async function createOrnament(name, rarity, image, serverId, isFound ) {
     const ornament = new Ornament({name, rarity, image, serverId, isFound})

@@ -6,12 +6,12 @@ const creatureSchema = new Schema({
     name: {
         type: String, 
         required: true,
-        unique: true,
+        unique: true
     },
 
     pronoun : {
         type: String,
-        required: true,
+        required: true
     },
 
     items: [{

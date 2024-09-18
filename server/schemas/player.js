@@ -10,7 +10,7 @@ const playerSchema = new Schema({
     serverId: {
         type: Number,
         required: true,
-        immutable: true
+        immutable: true,
     },
     score: {
         type: Number,
@@ -28,4 +28,4 @@ const playerSchema = new Schema({
 })
 
 const Player = model('Player', playerSchema);
-module.exports = { Player, playerSchema } ;
+module.exports = { Player, playerSchema };
