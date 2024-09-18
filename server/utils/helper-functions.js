@@ -16,6 +16,11 @@ async function createDatabaseEntry(databaseEntry) {
     }
 }
 
+/**
+ * 
+ * @param {Object} requiredFields Object containing the fields we want to validate
+ * @param {String} objectType type of object we are validating, used for the error message
+ */
 function validateRequiredFields(requiredFields, objectType){
     for (const key in requiredFields) {
         assert(requiredFields[key] !== undefined && requiredFields[key] !== null, `${key} is required to create the ${objectType} model`)
