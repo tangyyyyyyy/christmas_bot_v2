@@ -16,6 +16,6 @@ const communitySchema = new Schema({
         default: []
     }],
 })
-
+ 
 const Community = model('Community', communitySchema);
 module.exports = { Community, communitySchema };

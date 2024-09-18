@@ -18,13 +18,13 @@ const { connect, connection } = require('mongoose');
 console.log("INITIALIZING CHRISTMAS BOT");
 
 async function main() {
-    console.log("The elves are getting to work...")
+    console.log("The elves are getting to work...");
     await connect(databaseToken, {dbName: 'christmas_bot_v2'}).catch(console.error);
     console.log("Christmas Bot Status: ONLINE");
 
 
     //TESTING: set to true if you want to purge databases
-    let input = true
+    let input = true;
     if (input) {
         console.log("Deleting existing databases...");
         await connection.db.dropDatabase();
