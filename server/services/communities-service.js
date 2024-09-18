@@ -2,9 +2,9 @@ const { createDatabaseEntry, validateRequiredFields } = require('../utils/helper
 const { Community } = require('../schemas/community')
 
 /**
- * 
+ * Creates a community model and adds it the database
  * @param {Object} object an object containing fields for community
- * @param {Object.key -- Number} serverId 
+ * @param {Object.key -- Number -- required} serverId 
  * @param {Object.key -- Array[Ornaments]} foundOrnaments
  * @param {Object.key -- Array[Creature]} foundCreatures
  */
