@@ -7,6 +7,7 @@ const { Community } = require('../schemas/community')
  * @param {Object.key -- Number -- required} serverId 
  * @param {Object.key -- Array[Ornaments]} foundOrnaments
  * @param {Object.key -- Array[Creature]} foundCreatures
+ * @returns none
  */
 async function createCommunity({serverId, foundOrnaments, foundCreatures}) {
     validateRequiredFields({serverId}, 'community');

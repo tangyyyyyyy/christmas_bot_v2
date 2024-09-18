@@ -11,6 +11,7 @@ const { Creature } = require('../schemas/creature')
  * @param {Object.key -- String} image URL for image
  * @param {Object.key -- Boolean} isFound
  * @param {Object.key -- foundBy} playerSchema
+ * @returns none
  */
 async function createCreature({name, pronoun, items, nature, image, isFound, foundBy}) {
     validateRequiredFields({name, pronoun, items, nature}, 'creature');
