@@ -4,7 +4,8 @@
   "description": "\"# christmas_bot_v2\"",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon ./server/server.js"
+    "devStart": "nodemon ./server/server.js",
+    "prepare": "husky"
   },
   "author": "",
   "license": "ISC",

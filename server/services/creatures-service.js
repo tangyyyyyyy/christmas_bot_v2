@@ -1,8 +1,8 @@
 import {
   createDatabaseEntry,
   validateRequiredFields,
-} from '../utils/helper-functions.js'
-import { Creature } from '../schemas/creature.js'
+} from '../utils/helper-functions.js';
+import { Creature } from '../schemas/creature.js';
 
 /**
  * Creates a creature model and adds it the database
@@ -26,8 +26,7 @@ async function createCreature({
   foundBy,
 }) {
   validateRequiredFields({ name, pronoun, items, nature }, 'creature');
-  const test = "yes"
-  const test2 = "yess"
+  const test3 = 'urd';
   const creature = new Creature({
     name,
     pronoun,
