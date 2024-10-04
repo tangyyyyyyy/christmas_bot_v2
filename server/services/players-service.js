@@ -14,21 +14,36 @@ import { Player } from '../schemas/player.js'
  * @param {Object.key -- Number -- required} coalCount
  * @returns None
  */
-async function createPlayer({playerId, serverId, score, inventory, coalCount}) {
-    validateRequiredFields({playerId, serverId, score, inventory, coalCount}, 'player');
+async function createPlayer({
+  playerId,
+  serverId,
+  score,
+  inventory,
+  coalCount,
+}) {
+  validateRequiredFields(
+    { playerId, serverId, score, inventory, coalCount },
+    'player',
+  );
 
-    const player = new Player({playerId, serverId, score, inventory, coalCount})
+  const player = new Player({
+    playerId,
+    serverId,
+    score,
+    inventory,
+    coalCount,
+  });
 
-    if (player) {
-        await createDatabaseEntry(player);
-    }
-    return player
+  if (player) {
+    await createDatabaseEntry(player);
+  }
+  return player;
 }
 
 // updatePlayerAttributes() called when a player responds to a spawned creature (TODO: Rename this to something better)
 
-// getPlayerInventory() 
+// getPlayerInventory()
 
-// getFoundOrnaments() 
+// getFoundOrnaments()
 
 export { createPlayer };

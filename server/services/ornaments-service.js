@@ -7,7 +7,7 @@ import { Ornament } from '../schemas/ornament.js'
 /**
  * creates an ornament in the database
  * @param {Object} object an object containing fields for creature
- * @param {Object.key -- String -- required} name 
+ * @param {Object.key -- String -- required} name
  * @param {Object.key -- Number -- required} rarity (usually passed in from constants/RARITY)
  * @param {Object.key -- Number -- required} serverId
  * @param {Object.key -- String} image URL
@@ -15,14 +15,28 @@ import { Ornament } from '../schemas/ornament.js'
  * @param {Object.key -- Player} foundBy
  * @returns None
  */
-async function createOrnament({name, rarity, serverId, image, isFound, foundBy}) {
-    validateRequiredFields({name, rarity, serverId}, 'ornament');
+async function createOrnament({
+  name,
+  rarity,
+  serverId,
+  image,
+  isFound,
+  foundBy,
+}) {
+  validateRequiredFields({ name, rarity, serverId }, 'ornament');
 
-    const ornament = new Ornament({name, rarity, image, serverId, isFound, foundBy})
+  const ornament = new Ornament({
+    name,
+    rarity,
+    image,
+    serverId,
+    isFound,
+    foundBy,
+  });
 
-    if (ornament){
-        await createDatabaseEntry(ornament);
-    }
+  if (ornament) {
+    await createDatabaseEntry(ornament);
+  }
 }
 
 export { createOrnament };

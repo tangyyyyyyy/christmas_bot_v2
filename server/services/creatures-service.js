@@ -16,14 +16,30 @@ import { Creature } from '../schemas/creature.js'
  * @param {Object.key -- foundBy} playerSchema
  * @returns none
  */
-async function createCreature({name, pronoun, items, nature, image, isFound, foundBy}) {
-    validateRequiredFields({name, pronoun, items, nature}, 'creature');
+async function createCreature({
+  name,
+  pronoun,
+  items,
+  nature,
+  image,
+  isFound,
+  foundBy,
+}) {
+  validateRequiredFields({ name, pronoun, items, nature }, 'creature');
 
-    const creature = new Creature({name, pronoun, items, nature, image, isFound, foundBy})
+  const creature = new Creature({
+    name,
+    pronoun,
+    items,
+    nature,
+    image,
+    isFound,
+    foundBy,
+  });
 
-    if(creature) {
-        await createDatabaseEntry(creature);
-    }
+  if (creature) {
+    await createDatabaseEntry(creature);
+  }
 }
 
 export { createCreature };
