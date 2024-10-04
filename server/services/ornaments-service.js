@@ -1,8 +1,8 @@
 import {
   createDatabaseEntry,
   validateRequiredFields,
-} from '../utils/helper-functions.js'
-import { Ornament } from '../schemas/ornament.js'
+} from '../utils/helper-functions.js';
+import { Ornament } from '../schemas/ornament.js';
 
 /**
  * creates an ornament in the database

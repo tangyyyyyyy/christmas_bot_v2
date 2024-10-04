@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose'
-import { itemSchema } from './item.js'
-import { playerSchema } from './player.js'
+import { Schema, model } from 'mongoose';
+import { itemSchema } from './item.js';
+import { playerSchema } from './player.js';
 
 const creatureSchema = new Schema({
   name: {

@@ -1,8 +1,8 @@
 import {
   createDatabaseEntry,
   validateRequiredFields,
-} from '../utils/helper-functions.js'
-import { Player } from '../schemas/player.js'
+} from '../utils/helper-functions.js';
+import { Player } from '../schemas/player.js';
 
 /**
  * creates a player in the database

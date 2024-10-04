@@ -1,19 +1,19 @@
 //server dependancies
-import 'dotenv/config'
+import 'dotenv/config';
 const { token, databaseToken } = process.env;
 import mongoose from 'mongoose';
 const { connect, connection } = mongoose;
 
 //utils imports
-import { RARITY } from './utils/constants.js'
+import { RARITY } from './utils/constants.js';
 
 //services imports
-import { createItem } from './services/items-service.js'
-import { createOrnament } from './services/ornaments-service.js'
-import { createPlayer } from './services/players-service.js'
-import { createCreature } from './services/creatures-service.js'
-import { createCommunity } from './services/communities-service.js'
-import { initializeSettings } from './services/settings-service.js'
+import { createItem } from './services/items-service.js';
+import { createOrnament } from './services/ornaments-service.js';
+import { createPlayer } from './services/players-service.js';
+import { createCreature } from './services/creatures-service.js';
+import { createCommunity } from './services/communities-service.js';
+import { initializeSettings } from './services/settings-service.js';
 
 console.log('INITIALIZING CHRISTMAS BOT');
 

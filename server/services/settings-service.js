@@ -1,8 +1,8 @@
 import {
   createDatabaseEntry,
   validateRequiredFields,
-} from '../utils/helper-functions.js'
-import { Settings } from '../schemas/settings.js'
+} from '../utils/helper-functions.js';
+import { Settings } from '../schemas/settings.js';
 
 /**
  * Creates a settings model and adds it the database

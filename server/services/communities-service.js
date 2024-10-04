@@ -1,8 +1,8 @@
 import {
   createDatabaseEntry,
   validateRequiredFields,
-} from '../utils/helper-functions.js'
-import { Community } from '../schemas/community.js'
+} from '../utils/helper-functions.js';
+import { Community } from '../schemas/community.js';
 
 /**
  * Creates a community model and adds it the database

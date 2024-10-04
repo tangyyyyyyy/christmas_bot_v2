@@ -1,5 +1,5 @@
-import { Schema, model } from 'mongoose'
-import { creatureSchema } from './creature.js'
+import { Schema, model } from 'mongoose';
+import { creatureSchema } from './creature.js';
 
 const communitySchema = new Schema({
   serverId: {

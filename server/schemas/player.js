@@ -1,5 +1,5 @@
-import { Schema, model } from 'mongoose'
-import { itemSchema } from './item.js'
+import { Schema, model } from 'mongoose';
+import { itemSchema } from './item.js';
 
 const playerSchema = new Schema({
   playerId: {

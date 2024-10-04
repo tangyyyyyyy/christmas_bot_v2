@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose'
-import { Item } from './item.js'
-import { playerSchema } from './player.js'
+import { Schema, model } from 'mongoose';
+import { Item } from './item.js';
+import { playerSchema } from './player.js';
 
 const ornamentSchema = new Schema({
   serverId: {

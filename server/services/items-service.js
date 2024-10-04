@@ -1,8 +1,8 @@
 import {
   createDatabaseEntry,
   validateRequiredFields,
-} from '../utils/helper-functions.js'
-import { Item } from '../schemas/item.js'
+} from '../utils/helper-functions.js';
+import { Item } from '../schemas/item.js';
 
 /**
  * creates an item in the database
