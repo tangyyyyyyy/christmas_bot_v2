@@ -1,5 +1,8 @@
-const { createDatabaseEntry, validateRequiredFields } = require('../utils/helper-functions')
-const { Item } = require('../schemas/item')
+import {
+  createDatabaseEntry,
+  validateRequiredFields,
+} from '../utils/helper-functions.js'
+import { Item } from '../schemas/item.js'
 
 /**
  * creates an item in the database
@@ -19,4 +22,4 @@ async function createItem({name, rarity, image}) {
     }
 }
 
-module.exports = { createItem }
+export { createItem };

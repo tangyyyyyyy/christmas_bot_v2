@@ -1,5 +1,8 @@
-const { createDatabaseEntry, validateRequiredFields } = require('../utils/helper-functions')
-const { Ornament } = require('../schemas/ornament')
+import {
+  createDatabaseEntry,
+  validateRequiredFields,
+} from '../utils/helper-functions.js'
+import { Ornament } from '../schemas/ornament.js'
 
 /**
  * creates an ornament in the database
@@ -22,4 +25,4 @@ async function createOrnament({name, rarity, serverId, image, isFound, foundBy})
     }
 }
 
-module.exports = { createOrnament }
+export { createOrnament };

@@ -1,5 +1,8 @@
-const { createDatabaseEntry, validateRequiredFields } = require('../utils/helper-functions')
-const { Community } = require('../schemas/community')
+import {
+  createDatabaseEntry,
+  validateRequiredFields,
+} from '../utils/helper-functions.js'
+import { Community } from '../schemas/community.js'
 
 /**
  * Creates a community model and adds it the database
@@ -19,7 +22,7 @@ async function createCommunity({serverId, foundOrnaments, foundCreatures}) {
     }
 }
 
-module.exports = { createCommunity }
+export { createCommunity };
 // getCommunityTree()
 
 // getCreatureDex()

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const assert = require('assert')
+=======
+import assert from 'assert';
+>>>>>>> da8f3ca... Add preliminary support for typescript, and convert all imports/exports into ESModule syntax (which is needed for typescript)
 
 /**
  * HELPER FUNCTION: uploads an object to the database
@@ -27,4 +31,8 @@ function validateRequiredFields(requiredFields, objectType){
     }
 }
 
+<<<<<<< HEAD
 module.exports = { createDatabaseEntry, validateRequiredFields }
+=======
+export { createDatabaseEntry, validateRequiredFields };
+>>>>>>> da8f3ca... Add preliminary support for typescript, and convert all imports/exports into ESModule syntax (which is needed for typescript)

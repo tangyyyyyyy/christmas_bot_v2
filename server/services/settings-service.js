@@ -1,5 +1,8 @@
-const { createDatabaseEntry, validateRequiredFields } = require('../utils/helper-functions')
-const { Settings } = require('../schemas/settings')
+import {
+  createDatabaseEntry,
+  validateRequiredFields,
+} from '../utils/helper-functions.js'
+import { Settings } from '../schemas/settings.js'
 
 /**
  * Creates a settings model and adds it the database
@@ -17,4 +20,4 @@ async function initializeSettings({serverId}){
     }
 }
 
-module.exports = { initializeSettings }
+export { initializeSettings };

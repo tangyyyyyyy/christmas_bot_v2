@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose'
 
 const itemSchema = new Schema({
     name: {
@@ -18,4 +18,4 @@ const itemSchema = new Schema({
 }, { discriminatorKey: 'kind'});
 
 const Item = model('Item', itemSchema);
-module.exports = { Item, itemSchema };
+export { Item, itemSchema };

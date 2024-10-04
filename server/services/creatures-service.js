@@ -1,5 +1,8 @@
-const { createDatabaseEntry, validateRequiredFields } = require('../utils/helper-functions')
-const { Creature } = require('../schemas/creature')
+import {
+  createDatabaseEntry,
+  validateRequiredFields,
+} from '../utils/helper-functions.js'
+import { Creature } from '../schemas/creature.js'
 
 /**
  * Creates a creature model and adds it the database
@@ -23,4 +26,4 @@ async function createCreature({name, pronoun, items, nature, image, isFound, fou
     }
 }
 
-module.exports = { createCreature }
+export { createCreature };

@@ -1,5 +1,8 @@
-const { createDatabaseEntry, validateRequiredFields } = require('../utils/helper-functions')
-const { Player } = require('../schemas/player')
+import {
+  createDatabaseEntry,
+  validateRequiredFields,
+} from '../utils/helper-functions.js'
+import { Player } from '../schemas/player.js'
 
 /**
  * creates a player in the database
@@ -28,4 +31,4 @@ async function createPlayer({playerId, serverId, score, inventory, coalCount}) {
 
 // getFoundOrnaments() 
 
-module.exports = { createPlayer }
+export { createPlayer };

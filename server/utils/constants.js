@@ -6,4 +6,4 @@ const RARITY = {
     LEGENDARY: 0.5,
 }
 
-module.exports = { RARITY }
+export { RARITY };
