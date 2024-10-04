@@ -26,7 +26,7 @@ async function createCreature({
   foundBy,
 }) {
   validateRequiredFields({ name, pronoun, items, nature }, 'creature');
-
+  const test = "yes"
   const creature = new Creature({
     name,
     pronoun,
