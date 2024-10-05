@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
-const { Item } = require('./item');
-const { playerSchema } = require('./player');
+import { Schema, model } from 'mongoose';
+import { Item } from './item.js';
+import { playerSchema } from './player.js';
 
 const ornamentSchema = new Schema({
   serverId: {
@@ -17,4 +17,4 @@ const ornamentSchema = new Schema({
 });
 
 const Ornament = Item.discriminator('Ornament', ornamentSchema);
-module.exports = { Ornament, ornamentSchema };
+export { Ornament, ornamentSchema };

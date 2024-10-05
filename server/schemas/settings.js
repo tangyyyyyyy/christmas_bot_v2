@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 
 const settingsSchema = new Schema({
   serverId: {
@@ -13,4 +13,4 @@ const settingsSchema = new Schema({
 });
 
 const Settings = model('Settings', settingsSchema);
-module.exports = { Settings, settingsSchema };
+export { Settings, settingsSchema };

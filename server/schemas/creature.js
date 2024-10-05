@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
-const { itemSchema } = require('./item');
-const { playerSchema } = require('./player');
+import { Schema, model } from 'mongoose';
+import { itemSchema } from './item.js';
+import { playerSchema } from './player.js';
 
 const creatureSchema = new Schema({
   name: {
@@ -37,4 +37,4 @@ const creatureSchema = new Schema({
 });
 
 const Creature = model('Creature', creatureSchema);
-module.exports = { Creature, creatureSchema };
+export { Creature, creatureSchema };

@@ -1,4 +1,4 @@
-const assert = require('assert');
+import assert from 'assert';
 
 /**
  * HELPER FUNCTION: uploads an object to the database
@@ -32,4 +32,4 @@ function validateRequiredFields(requiredFields, objectType) {
   }
 }
 
-module.exports = { createDatabaseEntry, validateRequiredFields };
+export { createDatabaseEntry, validateRequiredFields };

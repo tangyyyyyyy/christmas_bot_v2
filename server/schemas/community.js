@@ -1,6 +1,5 @@
-const { Schema, model } = require('mongoose');
-const { creatureSchema } = require('./creature');
-const { ornamentSchema } = require('./ornament');
+import { Schema, model } from 'mongoose';
+import { creatureSchema } from './creature.js';
 
 const communitySchema = new Schema({
   serverId: {
@@ -22,4 +21,4 @@ const communitySchema = new Schema({
 });
 
 const Community = model('Community', communitySchema);
-module.exports = { Community, communitySchema };
+export { Community, communitySchema };

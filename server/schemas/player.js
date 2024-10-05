@@ -1,5 +1,5 @@
-const { Schema, model } = require('mongoose');
-const { itemSchema } = require('./item');
+import { Schema, model } from 'mongoose';
+import { itemSchema } from './item.js';
 
 const playerSchema = new Schema({
   playerId: {
@@ -30,4 +30,4 @@ const playerSchema = new Schema({
 });
 
 const Player = model('Player', playerSchema);
-module.exports = { Player, playerSchema };
+export { Player, playerSchema };
